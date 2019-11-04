@@ -173,10 +173,10 @@
     // Browser supports crypto.getRandomValues()
     function hasCryptoGetRandomValues() {
         if (
-            crypto &&
-            typeof crypto === "object" &&
-            (typeof crypto.getRandomValues === "function" ||
-                typeof crypto.getRandomValues === "object") &&
+            window.crypto &&
+            typeof window.crypto === "object" &&
+            (typeof window.crypto.getRandomValues === "function" ||
+                typeof window.crypto.getRandomValues === "object") &&
             (typeof Uint32Array === "function" ||
                 typeof Uint32Array === "object")
         ) {
@@ -273,7 +273,7 @@
             while (str === null) {
                 str = construct(
                     bits,
-                    crypto.getRandomValues(new Uint32Array(elems)),
+                    window.crypto.getRandomValues(new Uint32Array(elems)),
                     radix,
                     size
                 )
